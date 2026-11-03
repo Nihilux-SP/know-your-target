@@ -6,13 +6,13 @@
 
 ## Enlaces:
 - **Alcance:** https://github.com/Nihilux-SP/know-your-target/blob/main/alcance.md
-- https://hackerone.com/mongodb?type=team 
-- https://github.com/Nihilux-SP/know-your-target/blob/main/cuaderno.md
-- https://who.is/whois/mongodb.com
-- https://sitereport.netcraft.com/?url=https://mongodb.com
-- https://hunter.io/search/mongodb.com
-- https://www.mongodb.com/robots.txt?locale_fallback=es
-- https://www.shodan.io/search?query=mongo.db
-- https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
-- https://github.com/Nihilux-SP/know-your-target/blob/main/mapa.md
+- **HackerOne:** https://hackerone.com/mongodb?type=team 
+- **Cuaderno:** https://github.com/Nihilux-SP/know-your-target/blob/main/cuaderno.md
+- **Whois:** https://who.is/whois/mongodb.com
+- **Netcraft:** https://sitereport.netcraft.com/?url=https://mongodb.com
+- **Hunter.io:** https://hunter.io/search/mongodb.com
+- **Robots.txt:** https://www.mongodb.com/robots.txt?locale_fallback=es
+- **Shoda:** https://www.shodan.io/search?query=mongo.db
+- **Repositorio de versiones:** https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
+- **Mapa:** https://github.com/Nihilux-SP/know-your-target/blob/main/mapa.md
 - https://github.com/Nihilux-SP/know-your-target/blob/main/scope.md
