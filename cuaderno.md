@@ -3118,11 +3118,22 @@ https://sitereport.netcraft.com/?url=https://mongodb.com
 ![DNS](img/12.png)
 ![DNS](img/13.png)
 
-
 ### Ficheros expuestos:
 
+robots.txt
+![1](img/r1.png)
+![1](img/r2.png)
+![1](img/r3.png)
+
+[security.txt](https://www.mongodb.com/.well-known/security.txt)
+No hay archivo security
+
 ### Servicios expuestos:
+https://www.shodan.io/search?query=mongo.db
+![1](img/m.png)
 
 ### Google dorks:
+
+
 
 ### Correos:
