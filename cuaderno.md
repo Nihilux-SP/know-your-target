@@ -2,6 +2,7 @@
 ## Reconocimiento Pasivo
 
 ### Registro del Dominio (whois):
+2026/11/03 18:12:50 Objetivo: Determinar las características más básicas del dominio \
 Contact Information \
 Abuse Contact \
 Phone \
@@ -97,89 +98,91 @@ mongo-atlas.com \
 mongo-bbq.de \
 
 ### Registros DNS:
-18:36:30
-curl.exe -H "X-API-Key: edf6674028c886b6e66857af5bcd078806d33e53811a7cb732ce3c0785caa6c3" https://api.dnsdumpster.com/domain/mongodb.com
+2026/11/03 18:36:30 Objetivo: 
+curl.exe -H "X-API-Key: edf6674028c886b6e66857af5bcd078806d33e53811a7cb732ce3c0785caa6c3" https://api.dnsdumpster.com/domain/mongodb.com  \
 ![DNS](img/dns.png)
 
 ### Subdominios:
-subfinder -silent -d mongodb.com
+2026/11/03 18:36:30 Objetivo: Ver todos los subdominios existentes bajo el dominio principal de mongo.db \
 
-mars-e2e-24465.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-26497.dataplatform-dev.staging.corp.mongodb.com
-leafy-hospital-change-streams-api.industrysolutions.staging.corp.mongodb.com
-internal-tools.staging.corp.mongodb.com
-parca-qa.mongodb.com
-ai-dev.mongodb.com
-mars-e2e-21643.dataplatform-dev.staging.corp.mongodb.com
-dw-agent.datawarehouse.staging.corp.mongodb.com
-httpbin.staging.corp.mongodb.com
-ws.realm.mongodb.com
-backstage-jaya.backstage.staging.corp.mongodb.com
-mars-dev-feature-9821-dev.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-21062.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-21383.dataplatform-dev.staging.corp.mongodb.com
-urp-ui-matt-meisinger.devprod-infra.staging.corp.mongodb.com
-echoserver.staging.corp.mongodb.com
-api-gateway.website.staging.corp.mongodb.com
-foo.devprod.mongodb.com
-trino-oauth-gateway.prod.corp.mongodb.com
-mars-e2e-26343.dataplatform-dev.staging.corp.mongodb.com
-manu-multimodal-event-explorer.industrysolutions.staging.corp.mongodb.com
-agentcore-example.aix.staging.corp.mongodb.com
-semantic-studio.dataplatform.staging.corp.mongodb.com
-mars-e2e-21591.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-22430.dataplatform-dev.staging.corp.mongodb.com
-buildbaron-mcp.devprod-mcp-gateway.staging.corp.mongodb.com
-syseng-jirahook.mongodb.com
-greenhouse-manager.corp.mongodb.com
-mars-e2e-23070.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-25669.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-26404.dataplatform-dev.staging.corp.mongodb.com
-brian-samek.evergreen-staging.devprod.mongodb.com
-coverity.devprod-infra.prod.corp.mongodb.com
-inspirebrands-modernized.app-mod-rnd.staging.corp.mongodb.com
-mars-e2e-23466.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-24661.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-25602.dataplatform-dev.staging.corp.mongodb.com
-corps-etrade-preclearance.prod.corp.mongodb.com
-duo.corp.mongodb.com
-mars-e2e-23321.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-23702.dataplatform-dev.staging.corp.mongodb.com
-performance-analyzer.server-tig.prod.corp.mongodb.com
-guard-odl.app-mod-rnd.staging.corp.mongodb.com
-mars-e2e-21978.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-22118.dataplatform-dev.staging.corp.mongodb.com
-mycelium-staging.website.staging.corp.mongodb.com
-mars-e2e-23139.dataplatform-dev.staging.corp.mongodb.com
-patchmatch.skunkworks.staging.corp.mongodb.com
-mycelium-staging-preview.website.staging.corp.mongodb.com
-mars-e2e-24696.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-25025.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-26142.dataplatform-dev.staging.corp.mongodb.com
-restore-backup-dev.use1-az1.us-east-1.mongodb.com
-salesforce.corp.mongodb.com
-mana-rule-generator.corps.staging.corp.mongodb.com
-mars-e2e-21009.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-25567.dataplatform-dev.staging.corp.mongodb.com
-flightpath.mongodb.com
-eu-west-1.real-time-api-agents-qa.mongodb.com
-kb.cake.prod.corp.mongodb.com
-emvee-cluster-sync.corps.prod.corp.mongodb.com
-sporty-leafy.sa.prod.corp.mongodb.com
-mars-e2e-24456.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-23940.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-25572.dataplatform-dev.staging.corp.mongodb.com
-whoami-istio-82726cea.testrouting.test.corp.mongodb.com
-xds-agents-internal.mongodb.com
-mars-e2e-20453.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-21279.dataplatform-dev.staging.corp.mongodb.com
-mars-e2e-25434.dataplatform-dev.staging.corp.mongodb.com
-nimbus.staging.corp.mongodb.com
-tchelper-staging.corp.mongodb.com
-dlagent.dataplatform.prod.corp.mongodb.com
-us-east-1.aws.clickhouse-dev.corp.mongodb.com
-student.devrel.prod.corp.mongodb.com
-mongodbcom-node-mesh.website.staging.corp.mongodb.com
+subfinder -silent -d mongodb.com \ 
+
+mars-e2e-24465.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-26497.dataplatform-dev.staging.corp.mongodb.com \
+leafy-hospital-change-streams-api.industrysolutions.staging.corp.mongodb.com \
+internal-tools.staging.corp.mongodb.com \
+parca-qa.mongodb.com \
+ai-dev.mongodb.com \
+mars-e2e-21643.dataplatform-dev.staging.corp.mongodb.com \
+dw-agent.datawarehouse.staging.corp.mongodb.com \
+httpbin.staging.corp.mongodb.com \
+ws.realm.mongodb.com \
+backstage-jaya.backstage.staging.corp.mongodb.com \
+mars-dev-feature-9821-dev.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-21062.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-21383.dataplatform-dev.staging.corp.mongodb.com \
+urp-ui-matt-meisinger.devprod-infra.staging.corp.mongodb.com \
+echoserver.staging.corp.mongodb.com \
+api-gateway.website.staging.corp.mongodb.com \
+foo.devprod.mongodb.com \
+trino-oauth-gateway.prod.corp.mongodb.com \
+mars-e2e-26343.dataplatform-dev.staging.corp.mongodb.com \
+manu-multimodal-event-explorer.industrysolutions.staging.corp.mongodb.com \
+agentcore-example.aix.staging.corp.mongodb.com \
+semantic-studio.dataplatform.staging.corp.mongodb.com \
+mars-e2e-21591.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-22430.dataplatform-dev.staging.corp.mongodb.com \
+buildbaron-mcp.devprod-mcp-gateway.staging.corp.mongodb.com \
+syseng-jirahook.mongodb.com \
+greenhouse-manager.corp.mongodb.com \
+mars-e2e-23070.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-25669.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-26404.dataplatform-dev.staging.corp.mongodb.com \
+brian-samek.evergreen-staging.devprod.mongodb.com \
+coverity.devprod-infra.prod.corp.mongodb.com \ 
+inspirebrands-modernized.app-mod-rnd.staging.corp.mongodb.com \
+mars-e2e-23466.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-24661.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-25602.dataplatform-dev.staging.corp.mongodb.com \
+corps-etrade-preclearance.prod.corp.mongodb.com \ 
+duo.corp.mongodb.com \
+mars-e2e-23321.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-23702.dataplatform-dev.staging.corp.mongodb.com \
+performance-analyzer.server-tig.prod.corp.mongodb.com \
+guard-odl.app-mod-rnd.staging.corp.mongodb.com \
+mars-e2e-21978.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-22118.dataplatform-dev.staging.corp.mongodb.com \
+mycelium-staging.website.staging.corp.mongodb.com \
+mars-e2e-23139.dataplatform-dev.staging.corp.mongodb.com \
+patchmatch.skunkworks.staging.corp.mongodb.com \
+mycelium-staging-preview.website.staging.corp.mongodb.com \
+mars-e2e-24696.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-25025.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-26142.dataplatform-dev.staging.corp.mongodb.com \
+restore-backup-dev.use1-az1.us-east-1.mongodb.com \
+salesforce.corp.mongodb.com \
+mana-rule-generator.corps.staging.corp.mongodb.com \
+mars-e2e-21009.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-25567.dataplatform-dev.staging.corp.mongodb.com \
+flightpath.mongodb.com \
+eu-west-1.real-time-api-agents-qa.mongodb.com \
+kb.cake.prod.corp.mongodb.com \
+emvee-cluster-sync.corps.prod.corp.mongodb.com \
+sporty-leafy.sa.prod.corp.mongodb.com \
+mars-e2e-24456.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-23940.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-25572.dataplatform-dev.staging.corp.mongodb.com \
+whoami-istio-82726cea.testrouting.test.corp.mongodb.com \
+xds-agents-internal.mongodb.com \
+mars-e2e-20453.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-21279.dataplatform-dev.staging.corp.mongodb.com \
+mars-e2e-25434.dataplatform-dev.staging.corp.mongodb.com \
+nimbus.staging.corp.mongodb.com \
+tchelper-staging.corp.mongodb.com \
+dlagent.dataplatform.prod.corp.mongodb.com \
+us-east-1.aws.clickhouse-dev.corp.mongodb.com \
+student.devrel.prod.corp.mongodb.com \
+mongodbcom-node-mesh.website.staging.corp.mongodb.com \
 mars-e2e-26043.dataplatform-dev.staging.corp.mongodb.com
 mars-e2e-26582.dataplatform-dev.staging.corp.mongodb.com
 mars-e2e-20785.dataplatform-dev.staging.corp.mongodb.com
@@ -3102,6 +3105,7 @@ www.alertmanager.corp.mongodb.com
 mars-e2e-25501.dataplatform-dev.staging.corp.mongodb.com
 
 ### Huella tecnológica:
+2026/11/03 18:51:45 Objetivo: Descubrir donde se aloja, que tecnologías usa y su historial de hosting.
 https://sitereport.netcraft.com/?url=https://mongodb.com
 
 ![1](img/1.png)
@@ -3119,7 +3123,7 @@ https://sitereport.netcraft.com/?url=https://mongodb.com
 ![DNS](img/13.png)
 
 ### Ficheros expuestos:
-
+2026/11/03 19:03:20 Objetivo: Leer que ficheros no quieren que sean visibles por los rastreadores de google.
 robots.txt
 ![1](img/r1.png)
 ![1](img/r2.png)
@@ -3129,16 +3133,21 @@ robots.txt
 No hay archivo security
 
 ### Servicios expuestos:
+2026/11/03 19:12:01 Objetivo: Ver los diferentes servicios de Mongo.db \
 https://www.shodan.io/search?query=mongo.db
 ![1](img/m.png)
 
 ### Google dorks:
+2026/11/03 19:24:07 Objetivo: Descubrir los posibles anexos de Mongo.db \
+
 intitle:"index of" mongo.db \
 https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
-![1](img/i1.png)
+![1](img/i1.png) \
 Lo que muestra la imagen es un directorio público de distribución de paquetes (un repositorio APT). Con todo el historial de las versiones.
 
 
 ### Correos:
+2026/11/03 19:30:56 Objetivo: Ver todos los correos bajo el dominio de Mongo.db y quienes los usan \
+
 ![1](img/h.png)
 Aqui podemos observar los diferentes correos que están vinculados a mongo.db, pudiendo ver toda la gente que trabaja dentro de la empresa, desde ejecutivos hasta otros trabajadores.
