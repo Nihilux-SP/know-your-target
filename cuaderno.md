@@ -2,7 +2,7 @@
 ## Reconocimiento Pasivo
 
 ### Registro del Dominio (whois):
-2026/11/03 18:12:50 Objetivo: Determinar las características más básicas del dominio \
+2026/11/03 18:12:50 **Objetivo:** Determinar las características más básicas del dominio \
 Contact Information \
 Abuse Contact \
 Phone \
@@ -98,12 +98,12 @@ mongo-atlas.com \
 mongo-bbq.de \
 
 ### Registros DNS:
-2026/11/03 18:36:30 Objetivo: 
+2026/11/03 18:36:30 **Objetivo:** Buscar subdominios asociados al dominio principal \ 
 curl.exe -H "X-API-Key: edf6674028c886b6e66857af5bcd078806d33e53811a7cb732ce3c0785caa6c3" https://api.dnsdumpster.com/domain/mongodb.com  \
 ![DNS](img/dns.png)
 
 ### Subdominios:
-2026/11/03 18:36:30 Objetivo: Ver todos los subdominios existentes bajo el dominio principal de mongo.db \
+2026/11/03 18:36:30 **Objetivo:** Ver todos los subdominios existentes bajo el dominio principal de mongo.db \
 
 subfinder -silent -d mongodb.com \ 
 
@@ -3105,7 +3105,7 @@ www.alertmanager.corp.mongodb.com
 mars-e2e-25501.dataplatform-dev.staging.corp.mongodb.com
 
 ### Huella tecnológica:
-2026/11/03 18:51:45 Objetivo: Descubrir donde se aloja, que tecnologías usa y su historial de hosting.
+2026/11/03 18:51:45 **Objetivo:** Descubrir donde se aloja, que tecnologías usa y su historial de hosting.
 https://sitereport.netcraft.com/?url=https://mongodb.com
 
 ![1](img/1.png)
@@ -3123,7 +3123,7 @@ https://sitereport.netcraft.com/?url=https://mongodb.com
 ![DNS](img/13.png)
 
 ### Ficheros expuestos:
-2026/11/03 19:03:20 Objetivo: Leer que ficheros no quieren que sean visibles por los rastreadores de google.
+2026/11/03 19:03:20 **Objetivo:** Leer que ficheros no quieren que sean visibles por los rastreadores de google.
 robots.txt
 ![1](img/r1.png)
 ![1](img/r2.png)
@@ -3133,21 +3133,20 @@ robots.txt
 No hay archivo security
 
 ### Servicios expuestos:
-2026/11/03 19:12:01 Objetivo: Ver los diferentes servicios de Mongo.db \
+2026/11/03 19:12:01 **Objetivo:** Ver los diferentes servicios de Mongo.db \
 https://www.shodan.io/search?query=mongo.db
 ![1](img/m.png)
 
 ### Google dorks:
-2026/11/03 19:24:07 Objetivo: Descubrir los posibles anexos de Mongo.db \
+2026/11/03 19:24:07 **Objetivo:** Descubrir los posibles anexos de Mongo.db \
 
 intitle:"index of" mongo.db \
 https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
 ![1](img/i1.png) \
 Lo que muestra la imagen es un directorio público de distribución de paquetes (un repositorio APT). Con todo el historial de las versiones.
 
-
 ### Correos:
-2026/11/03 19:30:56 Objetivo: Ver todos los correos bajo el dominio de Mongo.db y quienes los usan \
+2026/11/03 19:30:56 **Objetivo:** Ver todos los correos bajo el dominio de Mongo.db y quienes los usan \
 
 ![1](img/h.png)
 Aqui podemos observar los diferentes correos que están vinculados a mongo.db, pudiendo ver toda la gente que trabaja dentro de la empresa, desde ejecutivos hasta otros trabajadores.
