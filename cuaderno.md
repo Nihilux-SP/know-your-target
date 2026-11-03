@@ -99,7 +99,7 @@ mongo-bbq.de \
 ### Registros DNS:
 18:36:30
 curl.exe -H "X-API-Key: edf6674028c886b6e66857af5bcd078806d33e53811a7cb732ce3c0785caa6c3" https://api.dnsdumpster.com/domain/mongodb.com
-![DNS](img/dns)
+![DNS](img/dns.png)
 
 ### Subdominios:
 subfinder -silent -d mongodb.com
@@ -3104,6 +3104,19 @@ mars-e2e-25501.dataplatform-dev.staging.corp.mongodb.com
 ### Huella tecnológica:
 https://sitereport.netcraft.com/?url=https://mongodb.com
 
+![1](img/1.png)
+![2](img/2.png)
+![3](img/3.png)
+![4](img/4.png)
+![5](img/5.png)
+![6](img/6.png)
+![D7NS](img/7.png)
+![8](img/8.png)
+![9](img/9.png)
+![10](img/10.png)
+![DNS](img/11.png)
+![DNS](img/12.png)
+![DNS](img/13.png)
 
 
 ### Ficheros expuestos:
