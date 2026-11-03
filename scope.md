@@ -1,6 +1,6 @@
 ## 1. Resumen
 
-**MongoDB, Inc. (operando bajo 10gen, Inc.)** es una compañía global de software (The Intelligent Data Platform for the AI Era) con sede registrada en París, Francia. Cotiza en bolsa (Public Company) y cuenta con una plantilla de 5.001 a 10.000 empleados, con presencia principal en Nueva York. 
+**MongoDB, Inc. es una compañía global de software con sede registrada en París, Francia. Cotiza en bolsa (Public Company) y cuenta con una plantilla de 5.001 a 10.000 empleados, con presencia principal en Nueva York. 
 
 Su infraestructura es fuertemente **cloud-native y multinube**, utilizando Amazon Web Services (AWS) y Google Cloud Platform (GCP) para hosting, DNS (Route 53, Cloud DNS), CDN (CloudFront) y correo (Vali Mail). El front-end principal está protegido por **Envoy (Istio)**, utiliza certificados SSL de Let's Encrypt y aplica políticas estrictas de correo (DMARC `p=reject`, SPF) *(Netcraft)*.
 
@@ -41,8 +41,8 @@ El dominio expone una superficie de ataque inmensa, con miles de subdominios de 
 *   **Correo Electrónico (Netcraft):**
     *   **SPF:** Utiliza `_spf.vali.email` (Vali Mail).
     *   **DMARC:** Política estricta `p=reject`. Reportes agregados a `dmarc_reports@mongodb.com` y forenses a `1eed4417@forensics.dmarc-report.com`.
-*   **Shodan:** Expone servicios de MongoDB (puerto 27017 por defecto) alojados en Hetzner (Finlandia) bajo el dominio `mongo.db` (resolver name). *(Nota: El escaneo de Shodan muestra IPs de terceros, lo que sugiere instancias mal configuradas de clientes o despliegues fuera del perímetro principal).*
-*   **Robots.txt:** Expone rutas administrativas y de desarrollo, como `/admin/`, `/devcenter-uat*`, `/docs-qa*`, `/community/forums/user-api-key/` y `/well-known/security.txt`. *(Capturas robots.txt)*.
+*   **Shodan:** Expone servicios de MongoDB (puerto 27017 por defecto) alojados en Hetzner (Finlandia) bajo el dominio `mongo.db`.
+*   **Robots.txt:** Expone rutas administrativas y de desarrollo, como `/admin/`, `/devcenter-uat*`, `/docs-qa*`, `/community/forums/user-api-key/` y `/well-known/security.txt`.
 
 ---
 
