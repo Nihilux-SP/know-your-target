@@ -2,7 +2,7 @@
 
 **MongoDB, Inc.** es una compañía global de software con sede registrada en París, Francia. Cotiza en bolsa (Public Company) y cuenta con una plantilla de 5.001 a 10.000 empleados, con presencia principal en Nueva York. 
 
-Su infraestructura es fuertemente **cloud-native y multinube**, utilizando Amazon Web Services (AWS) y Google Cloud Platform (GCP) para hosting, DNS (Route 53, Cloud DNS), CDN (CloudFront) y correo (Vali Mail). El front-end principal está protegido por **Envoy (Istio)**, utiliza certificados SSL de Let's Encrypt y aplica políticas estrictas de correo (DMARC `p=reject`, SPF) *(Netcraft)*.
+Su infraestructura es fuertemente **cloud-native y multinube**, utilizando Amazon Web Services (AWS) y Google Cloud Platform (GCP) para hosting, DNS (Route 53, Cloud DNS), CDN (CloudFront) y correo (Vali Mail). El front-end principal está protegido por **Envoy (Istio)**, utiliza certificados SSL de Let's Encrypt y aplica políticas estrictas de correo *(Netcraft)*.
 
 El dominio expone una superficie de ataque inmensa, con miles de subdominios de desarrollo, *staging* y corporativos (`*.corp.mongodb.com`) visibles públicamente *(Subfinder)*. Además, se han detectado **repositorios APT públicos** sin indexación cerrada *(Google Dorks)* y servicios de bases de datos MongoDB expuestos en Shodan, alojados en infraestructuras de terceros como Hetzner *(Shodan)*.
 
