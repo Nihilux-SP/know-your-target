@@ -3140,3 +3140,5 @@ Lo que muestra la imagen es un directorio público de distribución de paquetes 
 
 
 ### Correos:
+![1](img/h.png)
+Aqui podemos observar los diferentes correos que están vinculados a mongo.db, pudiendo ver toda la gente que trabaja dentro de la empresa, desde ejecutivos hasta otros trabajadores.
