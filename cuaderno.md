@@ -98,8 +98,9 @@ mongo-atlas.com \
 mongo-bbq.de \
 
 ### Registros DNS:
-2026/11/03 18:36:30 **Objetivo:** Buscar subdominios asociados al dominio principal \ 
-curl.exe -H "X-API-Key: edf6674028c886b6e66857af5bcd078806d33e53811a7cb732ce3c0785caa6c3" https://api.dnsdumpster.com/domain/mongodb.com  \
+2026/11/03 18:36:30 **Objetivo:** Buscar subdominios asociados al dominio principal \
+
+curl.exe -H "X-API-Key: edf6674028c886b6e66857af5bcd078806d33e53811a7cb732ce3c0785caa6c3" https://api.dnsdumpster.com/domain/mongodb.com \
 ![DNS](img/dns.png)
 
 ### Subdominios:
