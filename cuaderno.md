@@ -3133,7 +3133,10 @@ https://www.shodan.io/search?query=mongo.db
 ![1](img/m.png)
 
 ### Google dorks:
-
+intitle:"index of" mongo.db \
+https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
+![1](img/i1.png)
+Lo que muestra la imagen es un directorio público de distribución de paquetes (un repositorio APT). Con todo el historial de las versiones.
 
 
 ### Correos:
