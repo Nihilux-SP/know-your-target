@@ -1,6 +1,45 @@
-scope.txt · programa: MongoDB (HackerOne) · consultado: 2026-11-04
-Fuente: https://hackerone.com/mongodb
+# ===========================================================================
+#  TU ALCANCE AUTORIZADO
+# ===========================================================================
+#  Este fichero es la LISTA BLANCA del agente: solo tocará lo que esté aquí.
+#  Lo que no aparezca, queda fuera. Aunque el modelo "quiera" salirse, el
+#  scope-guard se lo impide.
+#
+#  CÓMO RELLENARLO (3 pasos):
+#
+#  1) ELIGE un objetivo que te AUTORICE a investigarlo: un programa público
+#     de bug bounty (HackerOne, Bugcrowd, Intigriti...) o tu laboratorio.
+#
+#  2) MIRA su alcance en la página del programa. Verás dos listas:
+#        - "In scope"      -> lo autorizado        -> va tal cual aquí
+#        - "Out of scope"  -> lo excluido           -> va con ! delante
+#
+#  3) TRADÚCELO a este formato (una entrada por línea):
+#        empresa.com          dominio exacto
+#        *.empresa.com        cualquier subdominio (NO incluye empresa.com)
+#        10.10.0.0/24         un rango de IPs (para laboratorio)
+#        192.168.56.20        una IP exacta
+#        !blog.empresa.com    EXCLUSIÓN: lo de ! queda SIEMPRE fuera
+#        # ...                las líneas con # y las vacías se ignoran
+#
+#  Reglas, en orden: exclusiones (!) ganan siempre -> coincidencia exacta ->
+#  comodines y rangos -> y por defecto, FUERA.
+#
+#  Comprueba tu alcance antes de lanzar (ver README, paso 3.2).
+# ===========================================================================
+
+
+# -------------------- ESCRIBE AQUÍ TU ALCANCE --------------------
+# Programa: MongoDB (HackerOne) · consultado: 2026-11-04
+# Fuente: https://hackerone.com/mongodb
+# Nota: alcance.md solo detalla los TIPOS de vulnerabilidad fuera de alcance
+# (clickjacking, CSRF, DoS, ingeniería social...). Los activos "In Scope" se
+# han extraído de la página pública del programa.
+
+# --- IN SCOPE ---
 mongodb.com
-Los siguientes subdominios se sabe que están fuera de alcance o no son elegibles (según la política pública)
+*.mongodb.com
+
+# --- OUT OF SCOPE (exclusiones, van con ! delante) ---
 !feedback.mongodb.com
 !learn.mongodb.com
