@@ -15,4 +15,8 @@
 - **Shoda:** https://www.shodan.io/search?query=mongo.db
 - **Repositorio de versiones:** https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
 - **Mapa:** https://github.com/Nihilux-SP/know-your-target/blob/main/mapa.md
-- https://github.com/Nihilux-SP/know-your-target/blob/main/scope.md
+- **Scope** https://github.com/Nihilux-SP/know-your-target/blob/main/scope.md
+- **Informe** https://github.com/Nihilux-SP/know-your-target/blob/main/agente/informe.md
+- **Traza** https://github.com/Nihilux-SP/know-your-target/blob/main/agente/traza.jsonl
+- **Instrucciones** https://github.com/Nihilux-SP/know-your-target/blob/main/agente/instrucciones.md
+- **Pruebas** https://github.com/Nihilux-SP/know-your-target/blob/main/agente/pruebas.md
