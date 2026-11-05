@@ -5,6 +5,7 @@
 ## Objetivo Elegido: **Mongo.db**
 
 ## Enlaces:
+# Parte 1:
 - **Alcance:** https://github.com/Nihilux-SP/know-your-target/blob/main/alcance.md
 - **HackerOne:** https://hackerone.com/mongodb?type=team 
 - **Cuaderno:** https://github.com/Nihilux-SP/know-your-target/blob/main/cuaderno.md
@@ -15,6 +16,8 @@
 - **Shoda:** https://www.shodan.io/search?query=mongo.db
 - **Repositorio de versiones:** https://repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/
 - **Mapa:** https://github.com/Nihilux-SP/know-your-target/blob/main/mapa.md
+  
+# Parte 2:
 - **Scope** https://github.com/Nihilux-SP/know-your-target/blob/main/scope.md
 - **Informe** https://github.com/Nihilux-SP/know-your-target/blob/main/agente/informe.md
 - **Traza** https://github.com/Nihilux-SP/know-your-target/blob/main/agente/traza.jsonl
