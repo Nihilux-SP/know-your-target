@@ -4,88 +4,103 @@
 
 ### Tabla por tipo de dato
 
-| Dato | mapa.md | informe.md | ¿Coincide? | Observaciones |
+| Dato | Lo encontré yo | Lo encontró el agente | ¿Coincide? | Observaciones |
 |---|---|---|---|---|
-| **Subdominios en alcance** | Muestra cualitativa (~15 nombrados: `cloud`, `repo`, `account-qa/staging`, `login.corp`, `jira-staging.corp`, `api-backup.*`, `agentic-platform-staging`) | **7 114** (subfinder) + **547** (crt.sh) | **Parcial** | El agente cuantifica mucho más y **sí consultó crt.sh** (547). Yo solo aporté ejemplos ilustrativos, no un recuento. El agente gana en cobertura; yo aporté contexto de uso por subdominio. |
-| **Nameservers** | AWS Route 53 + Google Cloud DNS (citando `ns-cloud-e1` y `ns-1047`) | AWS Route 53 (4 NS) + Google Domains (4 NS) | **Sí** | Coincidencia total. El agente lista los 8 NS completos; yo solo cité 3. |
-| **Servidor de correo** | Google (Vali Mail en SPF) — *según `mapa.md`* | **Google Workspace** (MX `aspmx.l.google.com`, etc.) | **Discrepancia real** | **Aquí el dato de ejemplo "Microsoft 365" no aplica**: mi mapa dice Vali Mail/Google y el agente confirma Google Workspace vía MX. Coinciden en el proveedor (Google); difieren en el matiz SPF (Vali Mail) que el agente **no reporta**. |
-| **IPv4 raíz** | `3.33.132.188` (AWS Global Accelerator) | `15.197.135.80` + `3.33.132.188` | **Parcial** | El agente encuentra una IP más (`15.197.135.80`); yo solo tenía una. Coinciden en `3.33.132.188`. |
-| **IPv6 raíz** | No reportado | "Sin registros AAAA" | **Complementario** | El agente lo verifica explícitamente; yo no lo comprobé. |
-| **Servidor web / proxy** | `istio-envoy` | No lo menciona (solo deduce CDN AWS) | **Omisión del agente** | Yo identifiqué Envoy/Istio; el agente no lo reporta en `informe.md`. |
-| **Certificados SSL** | Let's Encrypt, TLS 1.3, `TLS_AES_256_GCM_SHA384` | No reportado | **Omisión del agente** | Dato de Netcraft presente en mi mapa, ausente en el informe. |
-| **DMARC / SPF** | `p=reject`, `_spf.vali.email`, reportes forenses | No reportado | **Omisión del agente** | El agente no consultó cabeceras DNS de correo (TXT/DMARC). |
-| **TXT de verificación SaaS** | No lo inventarié | **~50 TXT**, >20 servicios (Stripe, Atlassian, OpenAI, etc.) | **Ventaja clara del agente** | Yo no hice este inventario; el agente lo aporta con detalle y es valioso para inferir el stack SaaS. |
-| **robots.txt** | Rutas `/admin/`, `/devcenter-uat*`, `/docs-qa*`, `security.txt` | 87 directivas, sitemap, bloqueo de foros y `/.well-known/security.txt` | **Parcial** | Coinciden en la existencia y en rutas admin; el agente cuantifica (87) y añade el sitemap. Yo cité rutas `devcenter-uat`/`docs-qa` que el agente **no menciona**. |
-| **security.txt** | Presente | Presente pero **sin campos estándar** | **Parcial** | El agente aporta el matiz de "vacío/no estándar", que yo no verifiqué. |
-| **Shodan / IPs de terceros** | MongoDB 27017 en Hetzner (Finlandia, `135.181.175.223`) | IP `15.197.135.80` "fuera de alcance" de InternetDB; sin puertos/CVEs | **Discrepancia** | Yo reporté un hallazgo Shodan concreto (Hetzner); el agente solo dice que su consulta no devolvió nada. **No coinciden**: o son fuentes distintas o el agente no replicó mi consulta. |
-| **Correos / empleados** | Patrón `nombre.apellido@`, 4 162 empleados (Apollo), cargos | **0 correos** (theHarvester) | **Discrepancia** | Yo usé Apollo (directorio); el agente usó theHarvester (pasivo). No es contradicción de dato, sino **distinta fuente**: el agente no consultó Apollo. |
-| **WhoIs / registrador** | `10gen inc`, París; contactos redactados | Entity ID 292, fechas, estados, 8 NS | **Complementario** | Coinciden en organización; el agente aporta fechas y estados que yo no detallé. |
-| **Typosquatting** | `mongo365.org`, `mongo777.com` (fuera de alcance) | No reportado | **Omisión del agente** | Dato de mi mapa ausente en el informe. |
-| **Repositorio APT** | `repo.mongodb.com` con índice abierto (Google Dorks) | No reportado | **Omisión del agente** | Hallazgo clave de mi mapa que el agente no cubre (no usó Google Dorks). |
-| **CDN** | Amazon CloudFront | AWS (implícito en rangos) | **Parcial** | Yo nombro CloudFront; el agente solo dice "AWS/CDN". |
+| **Registrador WhoIs** | **Gandi SAS** (`whois.gandi.net`) | "Entity ID 292" | **Discrepancia** | Mi cuaderno es explícito: Gandi SAS. El agente da un identificador genérico ("Entity ID 292") que **no es el nombre del registrador**. Dato mal extraído por el agente. |
+| **Organización registrante** | `10gen inc`, 63-65 boulevard Massena, Paris 75013, FR | No lo menciona | **Omisión del agente** | Mi WhoIs crudo lo trae; el informe del agente no cita la organización. |
+| **Fecha de alta** | 8 julio 2008 | 2008-07-08 | **Sí** | Coinciden. |
+| **Fecha de caducidad** | **8 julio 2033** | **2034-07-08** | **Discrepancia** | Un año de diferencia. El agente probablemente redondeó o leyó otra fuente. **Comprobar contra `whois` fresco**. |
+| **Última actualización** | 14 octubre 2026 | 2026-10-21 | **Discrepancia leve** | Fechas distintas (14 vs 21 oct). Puede ser que el agente consultara más tarde; no es grave, pero no coinciden. |
+| **Nameservers** | 8 NS: 4 AWS Route 53 + 4 Google Cloud DNS (`ns-cloud-e1..e4`) | 8 NS: 4 AWS Route 53 + 4 **Google Domains** | **Parcial** | Coinciden en número y en AWS. **Difieren en el nombre**: yo tengo `ns-cloud-e1.googledomains.com` (Google Cloud DNS); el agente dice "Google Domains". Son productos distintos (Cloud DNS vs Domains). El agente **etiqueta mal**. |
+| **IPs de nameservers** | Las tengo (205.251.196.23, 216.239.32.110, etc.) | No las lista | **Omisión del agente** | Mi cuaderno resuelve cada NS a IP; el agente solo da hostnames. |
+| **Dominios similares (typosquatting)** | **11**: `mongo365.org`, `mongo56.top`, `mongo7105.com`, `mongo777.com/.org`, `mongo789.com`, `mongoapp.cc/.com`, `mongoapps.com`, `mongo-atlas.com`, `mongo-bbq.de` | No reportado | **Omisión del agente** | Dato de mi WhoIs que el agente no cubre. Relevante para phishing. |
+| **DNSDumpster** | Usado (`api.dnsdumpster.com/domain/mongodb.com`) con captura | No lo menciona | **Fuente distinta** | Yo usé DNSDumpster como fuente adicional; el agente no. |
+| **Subdominios (subfinder)** | **Volcado crudo** de miles de líneas (mars-e2e-*, *.staging.corp, *.prod.corp, realm, stitch, etc.) | **7 114** (subfinder) + **547** (crt.sh) | **Parcial / no auditable en el agente** | Yo aporto el **dump real**; el agente da un **recuento sin lista**. Mi recuento no está cuantificado, pero es **verificable**. El del agente es **más grande pero no auditable**. |
+| **Subdominios (crt.sh)** | El cuaderno **no muestra** una consulta explícita a crt.sh | **547** | **No comparable** | Aquí el agente **sí consultó crt.sh** y yo no lo documenté en el cuaderno (corrijo la observación anterior del `mapa.md`). Punto para el agente. |
+| **Patrones de subdominios** | `mars-e2e-*`, `*.staging.corp`, `*.prod.corp`, `*.test.corp`, `*.devops.test`, `realm` (aws/gcp/azure), `stitch`, `charts`, `api-agents`, `agentengine`, `atlas-*`, `cloud-*`, `warpstream`, `minos`, `skunkworks`, `industrysolutions`, `maap`, `deet`, `gtm-*` | Categorías: públicos, `.corp`, `.prod.corp`, `.staging.corp`, `.stitch`, `.realm`, `.cf`, geográficos | **Parcial** | Coinciden en las grandes categorías. **El agente no nombra** `mars-e2e-*` (que domina el dump), ni `skunkworks`, `industrysolutions`, `maap`, `deet`, `gtm-*`. Mi dump es más rico en patrones reales. |
+| **Huella tecnológica (Netcraft)** | Capturas de sitereport.netcraft.com (11 imágenes) | No las menciona | **Omisión del agente** | Mi cuaderno documenta Netcraft con capturas; el agente no lo cita como fuente. |
+| **Servidor web / proxy** | `istio-envoy` (en `mapa.md`, derivado de Netcraft) | No lo menciona | **Omisión del agente** | Sigue siendo un dato mío que el agente no reporta. |
+| **CDN** | CloudFront (en `mapa.md`) | AWS/CDN implícito | **Parcial** | Yo nombro CloudFront; el agente no. |
+| **robots.txt** | Capturas (`r1.png`, `r2.png`, `r3.png`) | 87 directivas, sitemap, bloqueo de foros | **Parcial** | Coinciden en existencia. El agente cuantifica (87); yo tengo capturas pero no recuento. El agente **añade valor** aquí. |
+| **security.txt** | **"No hay archivo security"** (explícito en el cuaderno) | "Existe en `/.well-known/security.txt`, pero sin campos habituales" | **Contradicción directa** | Tú dices que **no existe**; el agente dice que **existe vacío**. Una de las dos observaciones es incorrecta. **Requiere verificación manual** (curl directo). Es el hallazgo más importante de esta comparativa. |
+| **Shodan** | Búsqueda `mongo.db` en shodan.io (captura `m.png`) | InternetDB de `15.197.135.80` (sin puertos/CVEs) | **Fuentes distintas** | Tú buscas por **query de Shodan** (`mongo.db`), el agente consulta **InternetDB de una IP concreta**. No son comparables: tú ves servicios MongoDB expuestos; el agente no ve nada porque la IP es CDN. **El agente no replicó tu consulta**. |
+| **Google Dorks** | **Sí**: `intitle:"index of" mongo.db` → `repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/` con índice abierto | No reportado | **Omisión del agente** | Hallazgo clave mío que el agente no cubre. |
+| **Correos** | Captura `h.png` con correos vinculados a mongodb.com | **0 correos** (theHarvester) | **Discrepancia de fuente** | Tú tienes correos visibles; el agente reporta 0 con theHarvester. No es contradicción de dato, sino **fuente distinta**: el agente no usó la misma fuente que tú. |
+| **TXT de verificación SaaS** | No lo inventarié | **~50 TXT**, >20 servicios | **Ventaja clara del agente** | Sigue siendo el mayor valor añadido del agente. |
+| **MX / correo** | No lo detallo en el cuaderno (solo correos de personas) | Google Workspace (5 MX) | **Ventaja del agente** | El agente aporta los MX; yo no los documenté. |
+| **DMARC/SPF** | No lo documento en el cuaderno | No reportado | **Empate en omisión** | Ninguno de los dos lo cubre en el cuaderno/informe (aunque `mapa.md` sí lo mencionaba). |
+| **IPv4 raíz** | No la documento en el cuaderno (sí en `mapa.md`: `3.33.132.188`) | `15.197.135.80` + `3.33.132.188` | **Parcial** | El agente añade una IP; yo tenía una en el mapa. |
+| **IPv6 raíz** | No comprobado | "Sin AAAA" | **Ventaja del agente** | El agente lo verifica. |
+| **Certificados SSL** | Capturas Netcraft (incluye SSL) | No reportado | **Omisión del agente** | Tengo capturas; el agente no lo extrae. |
 
 ### Resumen numérico
 
-| Métrica | Manual (`mapa.md`) | Agente (`informe.md`) |
+| Métrica | Manual (`cuaderno.md` + `mapa.md`) | Agente (`informe.md`) |
 |---|---|---|
-| **Subdominios cuantificados** | ~15 nombrados (sin recuento) | **7 661** (7 114 + 547) |
+| **Subdominios** | Volcado crudo (miles de líneas, sin recuento) | **7 661** (7 114 + 547) |
+| **Subdominios auditables** | **Sí** (dump completo en `cuaderno.md`) | **No** (solo recuento, sin lista) |
+| **Dominios similares (typosquatting)** | **11** | 0 |
+| **Nameservers con IP** | 8 (con IP) | 8 (sin IP) |
 | **Registros TXT inventariados** | 0 | **~50** (>20 servicios) |
-| **IPs raíz** | 1 | 2 |
-| **Nameservers listados** | 3 | 8 |
-| **Fuentes/herramientas citadas** | Netcraft, Subfinder, Shodan, Google Dorks, Apollo, WhoIs | WhoIs, DNS, subfinder, crt.sh, robots.txt, security.txt, Shodan InternetDB, theHarvester |
-| **Tiempo empleado** | *No registrado en `mapa.md`* — **no puedo afirmar una cifra sin inventarla** | *No consta en `informe.md`* — **tampoco verificable** |
-| **Coste del agente** | — | *No consta en `informe.md`* — **no inventar** |
-
-> **Honestidad metodológica:** el enunciado pide "cuánto tardó y cuánto costó". Ninguno de los dos artefactos contiene esos metadatos. **No los relleno con números inventados**; si se dispone de la traza del agente (logs con timestamps y tokens), deberían añadirse aquí. Lo dejo como *pendiente de instrumentación*.
-
-**Balance rápido:** el agente **gana en volumen y en cobertura DNS/TXT** (miles de subdominios, ~50 TXT, crt.sh incluido). Yo **gané en profundidad cualitativa**: identifiqué Envoy/Istio, CloudFront, DMARC/SPF, el repo APT abierto, Shodan en Hetzner, typosquatting y el patrón de correos con Apollo. Son **perfiles complementarios**, no uno mejor que otro en todo.
+| **MX documentados** | 0 | 5 |
+| **Hallazgos Shodan** | Query `mongo.db` con captura | InternetDB de una IP (sin resultado) |
+| **Google Dorks** | **1 hallazgo** (`repo.mongodb.com`) | 0 |
+| **Correos** | Captura con correos visibles | 0 (theHarvester) |
+| **Ficheros expuestos** | robots.txt + security.txt (dice "no hay") | robots.txt + security.txt (dice "existe vacío") |
+| **Tiempo empleado** | *No registrado en el cuaderno* — **no inventar** | *No consta en `informe.md`* — **no inventar** |
+| **Coste del agente** | — | *No consta* — **no inventar** |
 
 ---
 
 ## 3.2 Los fallos del agente
 
-> Clasifico según la tipología pedida. **No tengo la traza del agente**, así que los ejemplos se anclan en lo que **el propio `informe.md` declara** (secciones y afirmaciones), no en logs que no veo.
-
 ### a) Omisión — algo que estaba ahí y no encontró
-- **Servidor web `istio-envoy`**: mi mapa lo identifica vía Netcraft SSL; el `informe.md` **no lo menciona** en ninguna sección. Estaba disponible con la misma técnica (SSL/Network).
-- **DMARC/SPF**: el agente consultó MX y TXT de verificación, pero **no reporta** `p=reject`, `_spf.vali.email` ni los reportes forenses. La consulta DNS ya la tenía hecha; faltó parsear los TXT de correo.
-- **`repo.mongodb.com` (índice APT abierto)**: no aparece. Requería Google Dorks, que el agente **no ejecutó** (su lista de fuentes no incluye dorks).
-- **Typosquatting (`mongo365.org`, `mongo777.com`)**: no reportado, pese a ser dato WhoIs/pasivo.
-- **Rutas `devcenter-uat*` y `docs-qa*`** en robots.txt: el agente cuenta 87 directivas pero **no cita estas rutas**, que yo sí extraje.
+- **Registrador real (Gandi SAS)**: el agente pone "Entity ID 292" en lugar de "Gandi SAS". El dato estaba en el WhoIs que él mismo consultó.
+- **Organización `10gen inc` y dirección en París**: no aparece en el informe.
+- **11 dominios similares (typosquatting)**: `mongo365.org`, `mongo777.com`, etc. El agente no los reporta, pese a ser dato WhoIs pasivo.
+- **Google Dorks / `repo.mongodb.com`**: no reportado. El agente no ejecutó dorks.
+- **Shodan query `mongo.db`**: el agente solo consultó InternetDB de una IP; **no replicó** la búsqueda por query que tú sí hiciste.
+- **Servidor `istio-envoy`, CloudFront, SSL**: presentes en tu Netcraft; ausentes en el informe.
+- **Patrones de subdominios** `mars-e2e-*`, `skunkworks`, `industrysolutions`, `maap`, `deet`, `gtm-*`: el agente categoriza por grandes bloques pero **no nombra** estos patrones que dominan tu dump.
 
 ### b) Error — dato mal interpretado
-- **Atribución geográfica de IPs**: el informe etiqueta `15.197.135.80` como "AWS — rango Asia-Pacífico" y `3.33.132.188` como "rango global/CDN". Son rangos de **AWS Global Accelerator**, que son *anycast*: **no tienen una geografía única**. Afirmar "Asia-Pacífico" es una **sobreinterpretación** del rango, no un dato devuelto por la herramienta.
-- **Shodan InternetDB**: el agente concluye "sin CVEs visibles" para `15.197.135.80`. Eso **no es un hallazgo del objetivo**, es una IP de CDN/anycast; el propio informe lo reconoce ("infraestructura compartida"). El riesgo es que un lector lo lea como "mongodb.com no tiene CVEs", lo cual **es un error de interpretación** del alcance de la consulta.
+- **"Entity ID 292" como registrador**: es un identificador, **no el nombre** del registrador. El registrador es **Gandi SAS**. Error de extracción.
+- **"Google Domains" en lugar de "Google Cloud DNS"**: los NS `ns-cloud-e1..e4.googledomains.com` son de **Google Cloud DNS**, no de Google Domains (producto distinto). El agente **etiqueta mal** el proveedor.
+- **Fecha de caducidad 2034 vs 2033**: el agente da un año de más. Dato mal leído o redondeado.
+- **"Asia-Pacífico" para `15.197.135.80`**: es un rango **anycast** de AWS Global Accelerator; **no tiene geografía única**. Sobreinterpretación.
+- **"Sin CVEs visibles"** tras consultar InternetDB de una IP de CDN: el lector puede interpretar "mongodb.com no tiene CVEs", lo cual es **falso**; solo significa que esa IP compartida no expone nada en InternetDB.
 
 ### c) Invención (alucinación) — afirma sin respaldo de herramienta
-- No detecto una invención **flagrante** en `informe.md`: el documento es bastante disciplinado y marca "Observación" cuando infiere (p. ej. "sugiriendo una infraestructura DNS híbrida o una transición migratoria"). Esa frase es **inferencia declarada**, no alucinación.
-- **Riesgo latente**: la frase "Gran cantidad de herramientas SaaS integradas, lo que sugiere una infraestructura cloud muy segmentada" es una **conclusión sin evidencia directa** (los TXT prueban verificación de dominio, no necesariamente "segmentación"). No es invención de un dato, pero es **sobreafirmación** que conviene marcar como hipótesis.
-- **No puedo confirmar** si en la traza el agente "inventó" un subdominio o una IP, porque el `informe.md` no incluye la lista cruda de 7 114/547. **Ese es precisamente el punto ciego**: sin volcado, no auditable.
+- **No detecto una invención flagrante** en `informe.md`: el documento marca "Observación" cuando infiere (p. ej. "sugiriendo una infraestructura DNS híbrida"). Eso es **inferencia declarada**, no alucinación.
+- **Riesgo latente**: "Gran cantidad de herramientas SaaS integradas, lo que sugiere una infraestructura cloud muy segmentada". Los TXT prueban **verificación de dominio**, no necesariamente "segmentación". Es **sobreafirmación** que conviene marcar como hipótesis.
+- **El caso security.txt**: el agente afirma que **existe** en `/.well-known/security.txt` "pero sin campos habituales", mientras tu cuaderno dice **"No hay archivo security"**. Si tu comprobación manual es correcta, el agente **inventó la existencia del fichero** (o lo confundió con otra ruta). **Este es el punto que hay que verificar primero** con un `curl` directo.
 
 ### d) Intento fuera de alcance — bloqueado por scope-guard
-- El `informe.md` declara que subfinder y crt.sh **excluyeron correctamente** `feedback.mongodb.com` y `learn.mongodb.com` ("Ambos excluyeron correctamente..."). Eso sugiere que **el scope-guard funcionó** y el agente **no** intentó tocarlos (o si lo intentó, fue bloqueado y no lo reporta como hallazgo).
-- **No hay evidencia en el informe** de un intento fuera de alcance que el guard tuviera que bloquear (p. ej., no menciona haber consultado dominios de terceros ni `mongo365.org`). Si la traza mostrara un intento a `feedback.mongodb.com`, sería el ejemplo a citar; **sin traza, no lo afirmo**.
+- El `informe.md` declara que subfinder y crt.sh **excluyeron correctamente** `feedback.mongodb.com` y `learn.mongodb.com`. **El scope-guard funcionó**.
+- **No hay evidencia en el informe** de un intento fuera de alcance que el guard tuviera que bloquear (no menciona dominios de terceros ni `mongo365.org`). Sin traza, **no lo afirmo**.
 
 ---
 
 ## 3.3 Reflexión
 
 **¿Qué hizo mejor el agente que yo?**
-El agente **escaló el volumen y la sistematicidad**. Donde yo di ~15 subdominios de ejemplo, él devolvió **7 661** con dos fuentes (subfinder + crt.sh) y, sobre todo, **inventarió ~50 TXT y >20 servicios SaaS** (Stripe, OpenAI, Atlassian, Fastly, 1Password…). Ese inventario es **exactamente el tipo de dato que a mí se me escapa** por hacer reconocimiento "a ojo": yo no habría enumerado 50 TXT a mano. También fue más disciplinado en **cuantificar robots.txt (87 directivas)** y en **verificar la ausencia de AAAA**. En cobertura DNS/TXT, el agente es claramente superior.
+El agente **escaló el volumen y la sistematicidad**: **7 661 subdominios** (subfinder + crt.sh), **~50 TXT** con **>20 servicios SaaS** (Stripe, OpenAI, Atlassian, Fastly, 1Password…), **5 MX** de Google Workspace, verificación de **AAAA**, y **87 directivas de robots.txt**. En el cuaderno yo tengo el dump de subfinder pero **no lo cuantifiqué ni lo categoricé**; el agente lo hizo. Además, **sí consultó crt.sh** (547), algo que yo no documenté. En cobertura DNS/TXT y en disciplina de recuento, el agente es superior.
 
 **¿Qué hice mejor yo?**
-Aporté **profundidad cualitativa y contexto de explotación**. Identifiqué el **servidor `istio-envoy`**, el **CDN CloudFront**, la **política DMARC `p=reject` con Vali Mail**, el **repo APT con índice abierto** (`repo.mongodb.com`) vía Google Dorks, el **Shodan en Hetzner (`135.181.175.223`, puerto 27017)** y el **typosquatting** (`mongo365.org`). Son hallazgos que **apuntan a vectores concretos** (repo legacy, staging, spear-phishing) y que el agente **no cubrió** porque **no usó Dorks, ni Apollo, ni parseó SPF/DMARC**. Mi mapa conecta el dato con la **acción de Fase Activa**; el informe del agente se queda más en el inventario.
+Aporté **evidencia auditable y profundidad cualitativa**. Mi `cuaderno.md` tiene el **dump crudo de subfinder** (reproducible), el **WhoIs completo con Gandi SAS, `10gen inc`, dirección en París y 11 dominios similares**, la **query Shodan `mongo.db`** con captura, el **hallazgo de Google Dorks en `repo.mongodb.com/apt/ubuntu/dists/trusty/mongodb-enterprise/`**, **capturas Netcraft** (11 imágenes) y **correos visibles**. El agente, en cambio, da **recuentos sin lista** (no auditables), **mal etiqueta** el registrador y el proveedor DNS, y **omite** dorks, typosquatting y Shodan por query. Mi evidencia permite **reproducir y verificar**; la suya, en gran parte, no.
 
 **¿Por qué falló donde falló?**
-Por **tres causas distintas**, y conviene no mezclarlas:
-1. **Faltaban herramientas/fuentes**: el agente no ejecutó **Google Dorks** (por eso no vio `repo.mongodb.com`), no consultó **Apollo** (por eso 0 correos frente a mis 4 162) y no parseó **DMARC/SPF** aunque tenía los TXT. No es un fallo de razonamiento: es **cobertura de fuentes incompleta**.
-2. **Sobreinterpretación de salidas**: el "Asia-Pacífico" de una IP anycast y el "sin CVEs" sobre una IP de CDN son **errores de lectura**, no de herramienta. El modelo tomó el rango/ausencia de datos como conclusión geográfica/seguridad.
-3. **El prompt/scope no pidió explícitamente** el cruce con Dorks, Apollo o cabeceras de correo; el agente hizo **lo que se le pidió** (DNS, subdominios, robots, security.txt, Shodan, theHarvester) y **omitió lo que no estaba en su lista**. Aquí el fallo es **de diseño del prompt**, no del modelo.
+Por **tres causas distintas**:
+1. **Fuentes incompletas**: el agente no ejecutó **Google Dorks**, no consultó **Shodan por query** (`mongo.db`), no usó **DNSDumpster** ni **Netcraft** como yo, y no cruzó con la fuente de correos que tú usaste. No es fallo de razonamiento: es **cobertura de fuentes**.
+2. **Errores de extracción/etiquetado**: "Entity ID 292" por Gandi SAS, "Google Domains" por Google Cloud DNS, 2034 por 2033, "Asia-Pacífico" para una IP anycast. Son **errores de lectura** de salidas que la herramienta sí devolvió.
+3. **Sobreinterpretación**: "sin CVEs" sobre una IP de CDN y "cloud muy segmentada" a partir de TXT de verificación. El modelo convierte **ausencia de dato** en **conclusión**.
 
-**¿Me fiaría del informe sin revisarlo? ¿Qué comprobaría siempre?**
-**No me fiaría a ciegas**, por tres razones concretas de este caso:
-- **Los números no son auditables**: "7 114 subdominios" y "~50 TXT" vienen **sin volcado**. Un recuento sin lista es **no verificable**; podría incluir falsos positivos o fuera de alcance. **Siempre pediría el dump crudo** y muestrearía 20-30 entradas contra `dig`/`crt.sh`.
-- **Las inferencias se leen como hechos**: "Asia-Pacífico", "cloud muy segmentada", "sin CVEs". **Comprobaría cada afirmación geográfica/seguridad** contra la fuente (anycast ≠ geografía; InternetDB de una IP CDN ≠ postura del objetivo).
-- **Los ceros son sospechosos**: "0 correos" con theHarvester no significa "no hay correos"; significa "esa fuente no los indexó". **Cruzaría con Apollo/LinkedIn** antes de concluir nada.
+**¿Me fiaría del informe del agente sin revisarlo? ¿Qué comprobaría siempre?**
+**No me fiaría a ciegas**, y este caso lo demuestra con un ejemplo perfecto: **el agente dice que `security.txt` existe vacío; mi cuaderno dice que no existe**. Una de las dos es falsa, y **sin `curl` manual no lo sabes**. Comprobaría siempre:
+1. **El security.txt** con `curl -i https://www.mongodb.com/.well-known/security.txt` — es la contradicción más grave.
+2. **El registrador y las fechas** con `whois mongodb.com` fresco (Gandi vs "Entity ID 292"; 2033 vs 2034).
+3. **Un muestreo de 20-30 subdominios** del recuento de 7 661 contra `dig`/`crt.sh`, porque **no hay dump** y podría incluir falsos positivos o fuera de alcance.
+4. **Cada inferencia geográfica/seguridad**: "Asia-Pacífico" (anycast ≠ geografía), "sin CVEs" (InternetDB de CDN ≠ postura del objetivo).
+5. **Los ceros**: "0 correos" con theHarvester no significa "no hay correos"; significa "esa fuente no los indexó". Tu captura de correos lo demuestra.
 
-**Regla práctica que me llevo:** usar el agente como **generador de inventario** (subdominios, TXT, robots) y reservar la **validación y el contexto** (Envoy, DMARC, Dorks, Shodan real, typosquatting) para revisión humana. El informe del agente es un **buen punto de partida**, no un entregable final: **siempre volcar, muestrear y contrastar las inferencias**.
+**Regla práctica que me llevo:** usar el agente como **generador de inventario** (subdominios, TXT, MX, robots) y reservar para revisión humana la **validación** (security.txt, WhoIs, Shodan por query, Dorks, typosquatting, correos) y el **contexto** (Envoy, CloudFront, SSL). El informe del agente es un **buen punto de partida**, no un entregable final: **siempre volcar, muestrear y contrastar las inferencias**. Y, sobre todo, **exigir el dump crudo**: un recuento sin lista no es evidencia.
