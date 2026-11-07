@@ -47,8 +47,6 @@
 | **Google Dorks** | **1 hallazgo** (`repo.mongodb.com`) | 0 |
 | **Correos** | Captura con correos visibles | 0 (theHarvester) |
 | **Ficheros expuestos** | robots.txt + security.txt (dice "no hay") | robots.txt + security.txt (dice "existe vacío") |
-| **Tiempo empleado** | *No registrado en el cuaderno* — **no inventar** | *No consta en `informe.md`* — **no inventar** |
-| **Coste del agente** | — | *No consta* — **no inventar** |
 
 ---
 
